@@ -1,0 +1,20 @@
+@import url("components/avatar.css");
+@import url("components/sidebar.css");
+@import url("components/booking-header.css");
+@import url("components/booking-body.css");
+@import url("components/promotion-card.css");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #fff3ec;
+  font-family: "Poppins", sans-serif;
+}
+
+.wrapper {
+  display: flex;
+}

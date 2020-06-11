@@ -1,0 +1,93 @@
+.sidebar {
+  position: relative;
+  padding: 30px 25px;
+  background-color: white;
+  height: 100vh;
+  width: 22%;
+  border-right: 1px solid #ededed;
+}
+.logo {
+  font-size: 1.5rem;
+  padding: 30px 0;
+}
+.user-wrap {
+  align-items: center;
+  margin-bottom: 20px;
+  display: flex;
+}
+
+.user-info {
+  padding-left: 20px;
+}
+.user-info h4 {
+  color: #11034a;
+  font-size: 1.2rem;
+}
+.user-info p {
+  font-weight: 500;
+  color: #666666;
+  font-size: 0.8rem;
+}
+
+.menu-wrap {
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-wrap a {
+  color: #545454;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 10px 20px;
+  margin-left: 5px;
+}
+
+.menu-wrap a:hover{
+  color: #1c1c1c;
+  border-radius: 10px;
+  background-color: #b9e5eb;
+}
+.active-2{
+  color: #1c1c1c;
+  border-radius: 10px;
+  background-color: #b9e5eb;
+}
+
+.menu-wrap a i {
+  margin-right: 20px;
+  font-size: 20px;
+}
+hr {
+  opacity: 0.25;
+  margin: 20px 0;
+}
+
+.end {
+  width: 74%;
+  bottom: 30px;
+  position: absolute;
+}
+.footer {
+  align-items: center;
+  padding: 0 2;
+  justify-content: space-between;
+  display: flex;
+}
+.footer p {
+  opacity: 0.4;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+.footer .log-out{
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: 600;
+  color: #0dafc8;
+  font-size: 1rem;
+}
+.footer .log-out:hover{
+  color: black;
+}
+
+

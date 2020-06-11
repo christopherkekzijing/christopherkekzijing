@@ -1,0 +1,83 @@
+.upcoming-wrap {
+  display: flex;
+  padding: 40px 90px;
+}
+
+.upcoming-wrap h2 {
+  padding-bottom: 40px;
+}
+
+.card {
+  height: 120px;
+  margin-right: 40px;
+  margin-bottom: 15px;
+  width: 900px;
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 6px 5px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  transition: 0.5s ease;
+}
+
+.card:hover{
+  padding: 10px;
+  box-shadow: 0 6px 5px rgba(0, 0, 0, 0.15);
+
+}
+
+.dates {
+  border-right: 1px solid black;
+  text-align: center;
+  margin: 20px 0;
+  padding: 0 25px;
+}
+.dates h3 {
+  font-size: 1.6rem;
+}
+.dates p {
+  font-weight: 500;
+  font-size: 0.9rem;
+  margin: -6px;
+  opacity: 0.5;
+}
+
+.dates .month {
+  color: #0dafc8;
+  font-weight: 500;
+  font-size: 0.9rem;
+  margin: -6px;
+  opacity: 1;
+}
+.description {
+  padding: 20px 20px;
+  flex-grow: 1;
+}
+.description p {
+  opacity: 0.5;
+}
+.status {
+  padding-top: 10px;
+  margin: 0 25px;
+  text-align: right;
+}
+.status a {
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-decoration: none;
+  padding: 5px 20px;
+  border-radius: 10px;
+  color: #0e0440;
+  background-color: #ffddcb;
+}
+.status a:hover {
+  background-color: black;
+  color: white;
+}
+
+.memebers-images img {
+  margin-top: 20px;
+  width: 30px;
+  border-radius: 150%;
+}
