@@ -1,0 +1,84 @@
+.container-f {
+  height: 1100px;
+  background-color: rgb(24, 24, 24);
+  width: 100%;
+}
+
+.homepage-banner {
+  padding-top: 50px;
+  margin: 0 auto;
+  width: 90vw;
+}
+
+.homepage-banner .banner-row1 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.homepage-banner .banner-row1 .banner-desc {
+  width: 45vw;
+}
+.homepage-banner .banner-row1 .banner-desc h3 {
+  margin-bottom: 15px;
+  font-size: 2rem;
+  color: white;
+  font-weight: 600;
+}
+.homepage-banner .banner-row1 .banner-desc p {
+  font-size: 1rem;
+  color: white;
+  font-weight: 200;
+}
+.homepage-banner a {
+  padding: 15px 25px;
+  border-radius: 20px;
+  border: 1px solid white;
+  color: white;
+  font-size: 1rem;
+}
+
+.articles {
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.left-images {
+  border-radius: 30px;
+  background-color: #313131;
+}
+.left-images .card-content {
+  padding: 11px 18px 16px 18px;
+}
+
+.left-images .card-content h4 {
+  color: white;
+}
+.left-images img {
+  border-radius: 30px 30px 0 0;
+}
+.right-images {
+  display: flex;
+}
+.right-images .right-1 {
+  margin-right: 10px;
+  border-radius: 30px;
+  height: 480px;
+  background-color: #313131;
+}
+.right-images .right-2 {
+  border-radius: 30px;
+  height: 480px;
+  background-color: #313131;
+}
+.right-images .card-content {
+  padding: 11px 18px 16px 18px;
+}
+
+.right-images .card-content h4 {
+  color: white;
+}
+.right-images img {
+  border-radius: 30px 30px 0 0;
+}

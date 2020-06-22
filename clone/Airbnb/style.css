@@ -1,0 +1,85 @@
+@import "/css/homepage-second-row.css";
+@import "/css/fonts.css";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  /* overflow: hidden; */
+}
+h1 {
+  font-size: 3rem;
+}
+h4 {
+  margin-bottom: 5px;
+  font-size: 1.4rem;
+}
+
+.menu {
+  opacity: 0.8;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.signup-btn {
+  padding: 15px 25px !important;
+  border: 1px solid #b1b1b1;
+  border-radius: 50px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+}
+.text-decoration {
+  text-decoration: none;
+}
+.logo h1 {
+  font-size: 2rem;
+}
+.container-c {
+  width: 90vw;
+  margin: 0 auto;
+}
+.nav {
+  margin: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav-bar .list {
+  display: flex;
+  align-items: center;
+}
+
+.nav-bar .list li {
+  padding-left: 10px;
+  list-style: none;
+}
+.nav-bar .list li a {
+  padding: 0 15px;
+  text-decoration: none;
+  color: black;
+}
+.nav-bar.list {
+  margin: 0;
+}
+.title-homepage {
+  margin: 30px 0;
+}
+.title-homepage h1 {
+  font-weight: 500;
+}
+.cards {
+  margin: 30px 0 50px 0;
+  width: 400px;
+  border-radius: 30px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+}
+
+.cards .card-content {
+  padding: 11px 18px 16px 18px;
+}
+.cards .card-content p {
+  font-size: 0.9rem;
+}
+.cards img {
+  border-radius: 30px 30px 0 0;
+}
