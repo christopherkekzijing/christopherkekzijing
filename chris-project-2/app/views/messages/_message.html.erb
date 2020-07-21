@@ -1,0 +1,26 @@
+<div class="message-container" id="message-<%= message.id %>">
+  <div class="message-column d-flex justify-content-between align-items-center">
+    <div class="image mr-3">
+      <% if message.user.profile_photo.attached? %>
+        <img class="avatar" alt="avatar" src="<%=cl_image_path message.user.profile_photo.key %>" />
+      <% else %>
+        <img class="avatar" src="https://placekitten.com/408/287">
+        <%#= image_tag "https://placekitten.com/200/138", height: "40", width: "40" %>
+      <% end %>
+    </div>
+    <% if message.photo.attached? %>
+      <div class="message-with-user flex-grow-1">
+        <%= cl_image_tag message.photo.key, height: 178, width: 100, crop: :fit %>
+        <h6 class="mt-1">by <%= message.user.name %></h6>
+      </div>
+    <% else %>
+      <div class="message-with-user flex-grow-1">
+        <p><%= message.content %></p>
+        <h6>by <%= message.user.name %></h6>
+      </div>
+    <% end %>
+      <a><%= message.created_at.strftime("%l:%M%p") %></a>
+  </div>
+</div>
+<!-- we want to call the profile pic of the person WHENEVER he posts a message -->
+<!-- strftime("%l:%M%p") -->
