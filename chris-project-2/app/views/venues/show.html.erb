@@ -1,0 +1,194 @@
+<%= render 'shared/mobile_navbar'%>
+
+<div class="wrap-all">
+<div class="wrap-show-first">
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.8)), url(<%=cl_image_path @venue.photos[0].key %>)">
+    <%= link_to :back do %>
+    <div class="back-btn">
+      <i class="fa fa-arrow-left btn" aria-hidden="true"></i>
+    </div>
+    <% end %>
+    <h1><%= @venue.name %></h1>
+    <p><%= @venue.events.last.name%></p>
+    <!-- <p>< LIVE NOW IN CONCERT ></p> -->
+
+    <div class="card-rating-display">
+    <% full_stars = @venue.events.last.average_rating %>
+    <% empty_stars = 5 - full_stars %>
+
+    <p><% full_stars.times do %>
+      <i class="fa fa-star orange" aria-hidden="true"></i>
+    <% end %>
+
+    <% empty_stars.times do %>
+      <i class="fa fa-star" aria-hidden="true"></i>
+    <% end %>
+      (<%= @venue.events.last.ratings.count %>)</p>
+    </div>
+    <div class="card-product mt-3">
+      <div id="album" style="background-image: url(<%= @playlist_data["tracks"]["data"][2]['album']['cover_medium']%>)">
+        <audio id="mySong">
+          <source src="<%= @playlist_data["tracks"]["data"][2]["preview"]%>" type="audio/mpeg">
+        </audio>
+        <i class="fa fa-play" aria-hidden="true"></i>
+        <i class="fa fa-pause" style="display: none" aria-hidden="true"></i>
+      </div>
+      <div class="card-product-infos">
+        <h2><%= @playlist_data["tracks"]["data"][2]['artist']['name']%></h2>
+        <% artist = @playlist_data["tracks"]["data"][2]['artist']['name'] %>
+        <% song = @playlist_data["tracks"]["data"][2]['title_short'] %>
+        <marquee> <strong>Now playing</strong> - <%= artist %> - <%= song %> </marquee>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap-show pt-3">
+    <div class="show-item-container justify-content-between px-5">
+      <div class="waiting-time-show">
+        <i class="far fa-clock orange"></i>
+        <p> Waiting Time</p>
+        <h6 class="text-secondary">&nbsp;<%= @venue.events.last.waiting_time_now %> </h6>
+      </div>
+      <div class="capacity-show">
+        <i class="far fa-user orange"></i>
+        <p> Capacity</p>
+        <h6 class="text-secondary">&nbsp;<%= @venue.capacity %> Pax</h6>
+        <% crowded = @venue.events.last.average_crowded_level.round %>
+        <% uncrowded = 10 - @venue.events.last.average_crowded_level.round %>
+        <div class="progress">
+          <div class="progress-bar bg-danger" role="progressbar" style="width: <%= crowded*10%>%" aria-valuenow="<%= crowded*10%>" aria-valuemin="0" aria-valuemax="10"></div>
+          <div class="progress-bar bg-success" role="progressbar" style="width: <%= uncrowded*10%>%" aria-valuenow="<%= uncrowded*10%>" aria-valuemin="0" aria-valuemax="10"></div>
+        </div>
+      </div>
+      <div class="category-show">
+        <i class="fas fa-globe-americas orange"></i>
+        <p> Category</p>
+        <h6 class="text-secondary"> <%=@venue.category %></h6>
+      </div>
+    </div>
+    <div class="hr-tag">
+      <hr>
+    </div>
+    <div class="wrap-message">
+      <div class="live-feed ml-3">
+        <h6><strong>Live Feed: </strong></h6>
+      </div>
+    <div class="container msg-scroll">
+      <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
+        <% @chatroom.messages.each do |message| %>
+          <%= render 'messages/message', message: message %>
+        <% end %>
+      </div>
+    </div>
+    </div>
+</div>
+
+    <div class="btn-show btn btn-primary w-95" data-venue="<%= @venue.id %>" data-toggle="modal" data-target="#myModal">GO LIVE</div>
+
+      <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+      <!-- Rating Form content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="rating-header w-100">
+            <h2> Your take on the Vibe? </h2>
+          </div>
+        </div>
+
+        <div class="modal-body">
+          <div class = "rating-body">
+            <!-- rating the venue with stars -->
+            <h4 class="modal-title">Rate the atmosphere!</h4>
+            <div id="venue-rating">
+            <form action=<%="/venues/#{@venue.id}/events/#{@venue.events.last.id}/ratings"%>
+                  method="POST">
+              <input type="hidden" name="authenticity_token" value=<%=form_authenticity_token %>>
+              <div id="full-stars">
+                  <div class="rating-group">
+                      <input checked class="rating__input rating__input--none" name="stars" id="rating3-none" value=0 type="radio">
+                      <label aria-label="1 star" class="rating__label" for="rating3-1"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
+                      <input class="rating__input" name="stars" id="rating3-1" value=1 type="radio">
+                      <label aria-label="2 stars" class="rating__label" for="rating3-2"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
+                      <input class="rating__input" name="stars" id="rating3-2" value=2 type="radio">
+                      <label aria-label="3 stars" class="rating__label" for="rating3-3"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
+                      <input class="rating__input" name="stars" id="rating3-3" value=3 type="radio">
+                      <label aria-label="4 stars" class="rating__label" for="rating3-4"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
+                      <input class="rating__input" name="stars" id="rating3-4" value=4 type="radio">
+                      <label aria-label="5 stars" class="rating__label" for="rating3-5"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
+                      <input class="rating__input" name="stars" id="rating3-5" value=5 type="radio">
+                  </div>
+              </div>
+            </div>
+            <!-- slider for choosing crowded level-->
+            <h4 class="modal-title">How crowded is the place?</h4>
+              <div class="crowd-rating d-flex align-items-center justify-content-center">
+                <p>No Crowd</p>
+                <div class="crowd-level-rating">
+                  <input type="range" name="crowd_level" min="0" max="10" value="1" id="fader"
+                      step="1" list="volsettings">
+                </div>
+                <p>Crowded</p>
+                <datalist id="volsettings">
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                  <option>6</option>
+                  <option>7</option>
+                  <option>8</option>
+                  <option>9</option>
+                  <option>10</option>
+                </datalist>
+              </div>
+
+            <!-- drop down menu for choosing waiting time-->
+            <h4 class="modal-title">How long did you wait?</h4>
+                <div class="form-row align-items-center justify-content-center">
+                  <div class="col-auto my-1 w-50">
+                    <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Preference</label>
+                    <select name="waiting_time" class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                      <option selected>Choose...</option>
+                      <option value="no wait">no wait</option>
+                      <option value="5 min">5 min</option>
+                      <option value="10 min">10 min</option>
+                      <option value="15 min">15 min</option>
+                      <option value="30 min">30 min</option>
+                      <option value="30 min+">30 min + </option>
+                    </select>
+                  </div>
+                </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <div class= "rating-buttons w-100">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <input type="submit" class="btn btn-primary " value="Submit">
+                  </form>
+          </div>
+        </div>
+      </div>
+      </div>
+      </div>
+      </div>
+
+
+    <div class="message-area">
+      <%= simple_form_for [ @venue, @message ], remote: true do |f| %>
+      <div class="input d-flex align-items-center">
+        <%= f.input :content, label: false, placeholder: "Share the information~", class: "w-100" %>
+        <div class="photo-icon">
+          <%= f.input :photo, as: :file, input_html: { class: 'd-none' }, label_html: { class: 'upload-photo fa fa-camera'}, label: "" %>
+        </div>
+          <%= f.submit "Send", class: "btn btn-primary" %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+</div>
+

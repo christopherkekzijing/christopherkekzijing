@@ -1,0 +1,91 @@
+.card-1 {
+  height: 155px;
+  width: 160px;
+}
+
+.event-card-search {
+  width: 100vw;
+  margin: 0 15px 15px 15px;
+  border-radius: 15px;
+  position: relative;
+  background-color: white;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
+  height: 155px;
+  .card-info {
+    padding: 0 10px 0 10px;
+    margin-left: 10px;
+    p {
+      font-size: 12px;
+      margin: 0;
+    }
+    .bold {
+      font-weight: 600;
+      color: black;
+    }
+  }
+  h2 {
+    margin-bottom: 10px;
+    line-height: 15px;
+  }
+  h2 a {
+    font-size: 18px;
+    font-weight: 700;
+    color: black;
+    margin-bottom: 0;
+  }
+  h6 {
+    color: black;
+    margin-bottom: 5px;
+    font-size: 12px;
+    margin-top: -5px;
+  }
+
+  [aria-hidden="true"] {
+    color: #dedede;
+  }
+}
+
+.small_count {
+  color: black;
+  opacity: 0.8;
+  font-size: 0.8rem;
+}
+
+.image_search {
+  border-radius: 15px 0 0 15px;
+}
+
+.crowd_level {
+  margin-top: 5px;
+  i {
+    font-size: 8px;
+    margin: 0 -1px;
+  }
+}
+.capacity_waiting_time {
+  margin-top: 9px;
+}
+
+.capacity {
+  display: flex;
+  padding-bottom: 3px;
+  .fa {
+    font-size: 11px;
+  }
+}
+.progress {
+  height: 7px;
+}
+
+.search_scrollable {
+  max-height: 63vh;
+  overflow-y: scroll !important;
+}
+
+.marker {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+}

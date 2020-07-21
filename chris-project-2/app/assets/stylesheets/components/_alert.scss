@@ -1,0 +1,20 @@
+.alert {
+  position: fixed;
+  bottom: 7vh;
+  right: 0;
+  z-index: 1000;
+  text-align: center;
+}
+
+.fade_out {
+  animation: fadeOut ease 3s;
+}
+
+@keyframes fadeOut {
+  100% {
+    opacity: 1;
+  }
+  0% {
+    opacity: 0;
+  }
+}
